@@ -9,23 +9,23 @@ namespace FoxGooseCorn
     class Actor
     {
         //can hold one of two values - true or false
-        private bool bank;
-        private string name;
+        public bool Bank { get; set; }
+        public string Name { get; set; }
 
         public Actor(string name)
         {
             //false is synonymous with LEFT BANK
             //true is synonymous  with RIGHT BANK
-            this.name = name;
-            bank = false;
+            Name = name;
+            Bank = false;
         }
 
         public String getPosition()
         {
-            if (bank == false) 
-                return "The "+ name +" is on the left bank";
+            if (Bank == false) 
+                return "The "+ Name +" is on the left bank";
             else
-                return "The " + name + " is on the left bank";
+                return "The " + Name + " is on the right bank";
         }
     }
 }

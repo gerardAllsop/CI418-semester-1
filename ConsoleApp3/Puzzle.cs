@@ -8,18 +8,40 @@ namespace FoxGooseCorn
 {
     class Puzzle
     {    
-        Actor farmer, fox, corn, goose;
+        private List<Actor> actors;
         Help help;
 
         public Puzzle()
         {
-            //4 actors in the puzzle
-            farmer = new Actor("Farmer");
-            fox = new Actor("Fox");
-            goose = new Actor("Goose");
-            corn = new Actor("Corn");
+            //actors in THIS puzzle
+            actors = new List<Actor>();
+            //for each valid role in the puzzle
+            CastMembers.Roles.ForEach(role => actors.Add(new Actor(role)));
             //instance of help
             help = new Help();
+        }
+
+
+        public void printAllPlayerPositions()
+        {
+            actors.ForEach(actor => Console.WriteLine(actor.getPosition()));
+        }
+
+        public void printPlayerPosition(String player)
+        {
+            if (!CastMembers.isValidRole(player))
+            {
+                Console.WriteLine("{0} is not a valid role", player);
+            }
+            else{
+                foreach(var actor in actors)
+                {
+                    if(actor.Name.Equals(player))
+                    {
+                        Console.WriteLine(actor.getPosition());
+                    }
+                }
+            }
         }
 
         public void printIntro()
@@ -27,29 +49,9 @@ namespace FoxGooseCorn
             Console.WriteLine(help.getIntroTxt());
         }
 
-        public void printAllPlayerPositions()
-        {
-            Console.WriteLine(farmer.getPosition());
-            Console.WriteLine(fox.getPosition());
-            Console.WriteLine(goose.getPosition());
-            Console.WriteLine(corn.getPosition());
-        }
-
         public void printInstructions()
         {
             Console.WriteLine(help.getHelpKeys());
-        }
-
-        public void printPlayerPosition(String player)
-        {
-            if(player.Equals("farmer"))
-                Console.WriteLine(farmer.getPosition());
-            if (player.Equals("fox"))
-                Console.WriteLine(fox.getPosition());
-            if (player.Equals("goose"))
-                Console.WriteLine(goose.getPosition());
-            if (player.Equals("corn"))
-                Console.WriteLine(corn.getPosition());
         }
     }
 }
