@@ -24,6 +24,7 @@ namespace FoxGooseCorn
                 puzzle.printInstructions();
                 userResponse = Console.ReadLine();
                 Console.Clear();
+                //rewrite as switch statement
                 if (userResponse.Equals("1"))
                     puzzle.printIntro();
                 else if (userResponse.Equals("2"))
@@ -32,7 +33,7 @@ namespace FoxGooseCorn
                 {
                     Console.Write("Player: ");
                     string player = Console.ReadLine();
-                    puzzle.printPlayerPosition(player);
+                    puzzle.whereIsPlayer(player);
                 }
     
             }

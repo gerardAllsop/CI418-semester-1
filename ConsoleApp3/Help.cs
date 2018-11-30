@@ -15,17 +15,19 @@ namespace FoxGooseCorn
                          "Likewise, the goose cannot be left alone with the sack of corn, or the goose\n" +
                          "will eat the corn.\n" +
                          "\nHow does the farmer get everything across the river ?";
+        MenuItems menu;
 
         public Help()
         {
+            menu = new MenuItems();
         }
         public String getIntroTxt()
         {
             return introTxt;
         }
-        public String getHelpKeys()
+        public String getMenuText()
         {
-            return "\nhelp keys: 1= repeat intro  2=where is everybody? 3=where is... 4=quit";
+            return menu.MenuString;
         }
     }
 }
